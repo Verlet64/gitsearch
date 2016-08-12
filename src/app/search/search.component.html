@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div>
+        <form (ngSubmit)="onSubmit()"> 
+            <div>
+                <label for="username"> Username: </label>
+                <input type="text" [(ngModel)]="model.username" name="username">
+                {{model.username}}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>

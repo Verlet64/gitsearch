@@ -1,0 +1,23 @@
+// import { results } from '../../src/app/shared/results.reducer.ts';
+
+// import {
+//   it,
+//   describe,
+//   expect
+// } from '@angular/testing';
+
+// describe('results tests', () => {
+
+//     it('should return an empty array by default', () => {
+//         let stateItems = results([], {});
+//         expect(stateItems).toEqual([]);
+//     });
+
+//     it('should return the payload when we dispatch an ADD_RESULTS action', () => {
+//         let payload = initialState,
+//             stateItems = results(initialState, {type: 'ADD_RESULTS', payload: payload});
+
+//         expect(stateItems).toEqual(payload);
+//     });
+
+// });
