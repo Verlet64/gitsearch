@@ -25,8 +25,6 @@ export class AppComponent {
 
     constructor(private searchService: UserSearchService, private store: Store<AppState>) {
         this.results$ = searchService.results$;
-        this.selectedResult$ = store.select(state => state.selectedResult);
-        this.selectedResult$.subscribe(selected => console.log(selected));
         searchService.loadUserResults(); //on initial component load, we run loadUserResults to propogate the state of the results collection
     }
 }

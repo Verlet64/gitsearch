@@ -1,6 +1,6 @@
 import {Result} from './result.interface';
 
 export interface AppState {
-    results: Result[];
+    results: any;
     selectedResult: Result;
 }

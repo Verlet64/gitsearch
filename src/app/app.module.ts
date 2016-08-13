@@ -25,10 +25,12 @@ SERVICES & PROVIDERS
 ========================
 */
 
-import { provideStore } from '@ngrx/store';
+import { provideStore, combineReducers } from '@ngrx/store';
 import { ResultReducer, SelectedUserReducer} from './results/results.reducer';
 import { UserSearchService } from './shared/services/usersearch.service';
 import { appRoutingProviders } from './app.routes';
+import {storeLogger} from "ngrx-store-logger";
+import {compose} from "@ngrx/core/compose";
 
 /*
 ========================
@@ -47,7 +49,7 @@ DIRECTIVES
   providers: [
     appRoutingProviders, //router dependencies specification
     UserSearchService, //consumes the store
-    provideStore({ResultReducer, SelectedUserReducer}), //defines app state
+    provideStore(compose(storeLogger(), combineReducers)({results: ResultReducer, SelectedUserReducer})), //defines app state
     ],
   declarations: [ 
       AppComponent,

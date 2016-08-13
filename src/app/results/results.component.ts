@@ -6,6 +6,9 @@ import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../shared/interfaces/appstate.interface';
 
+
+import { UserSearchService } from '../shared/services/usersearch.service';
+
 @Component ({
     selector: 'search-results',
     templateUrl: 'src/app/results/results.component.html'
@@ -13,7 +16,15 @@ import { AppState } from '../shared/interfaces/appstate.interface';
 
 export class ResultsComponent {
 
-   @Input() results$: Result[];
+    public results$;
+
+    public resultObj;
+
+     constructor(private searchService: UserSearchService) { 
+        this.results$ = searchService.results$.subscribe(
+            s => this.resultObj = JSON.stringify(s)
+        )
+    }
 
 }
 

@@ -18,52 +18,43 @@ const BASE_URL = 'https://api.github.com/search/users';
 export class UserSearchService {
 
     private mockResults = {
-        "login": "ASDasdas",
-        "id": 418548,
-        "avatar_url": "https://avatars.githubusercontent.com/u/418548?v=3",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/ASDasdas",
-        "html_url": "https://github.com/ASDasdas",
-        "followers_url": "https://api.github.com/users/ASDasdas/followers",
-        "following_url": "https://api.github.com/users/ASDasdas/following{/other_user}",
-        "gists_url": "https://api.github.com/users/ASDasdas/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/ASDasdas/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/ASDasdas/subscriptions",
-        "organizations_url": "https://api.github.com/users/ASDasdas/orgs",
-        "repos_url": "https://api.github.com/users/ASDasdas/repos",
-        "events_url": "https://api.github.com/users/ASDasdas/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/ASDasdas/received_events",
-        "type": "User",
-        "site_admin": false,
-        "score": 16.34549
+        avatar_url: "https://avatars.githubusercontent.com/u/418548?v=3"
     }
 
-    results$: Observable<Array<Result>>;
+    public results$;
+    private payload;
 
     constructor(private http: Http, private store: Store<AppState>) {
         //use async pipe to subscribe to this in the template
-        this.results$ = store.select(state => state.results)
+        this.results$ = store.select('results')
         
     };
 
-    loadUserResults(searchQuery?: string) {
-        let payload;
-        if(searchQuery){
-            payload =  this.http.get(BASE_URL + '?q=' + searchQuery)
-                .map( (res: Response) => res.json())
-                .catch(this.handleError);
+    loadUserResults(searchQuery?: string, pageNum?: number) {
+
+        console.log(searchQuery);
+        if (searchQuery) {
+            let url = BASE_URL + '?q=' + searchQuery;
+            if (pageNum) {
+                url = url + '&page=' + pageNum;
+            }
+            this.http.get(url)
+                .map(response => response.json())
+                .map(response => response.items)
+                .map(payload => ({type: 'ADD_RESULTS', payload}))
+                .subscribe( 
+                    action => this.store.dispatch(action)
+                );
         }
         else {
-            payload = []; //Resets state of results store to []
+            this.payload = []; //Resets state of results store to []
         }
-        
 
-        this.store.dispatch({type: 'ADD_RESULTS', payload: payload});
     };
 
     private handleError (error: any) {
         let err = (error.message) ? error.message : error.status;
-        console.log(err);
+        console.log('error:' + err);
         return Observable.throw(err);
     }
 
