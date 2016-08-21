@@ -8,11 +8,13 @@
 .results-card{
     background-color: #f8f8ff;
     height: 80px;
-    line-height: 80px;
+    line-height: 75px;
     margin-top: 10px;
-    padding: 5px;
+    padding: 1px;
     border-radius: 3px;
-    border-size: 1px;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
 }
 
 .form-container {
@@ -23,11 +25,19 @@
     background-color: white;
     border-radius: 3px;
     height: 100%;
-    line-height: 70px;
 }
 
 .ava {
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
+}
+
+.name {
+    height: 100%;
+    margin-left: 10px;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-style: 'uppercase';
 }

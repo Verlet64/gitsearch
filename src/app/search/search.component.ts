@@ -34,9 +34,6 @@ export class SearchComponent {
 
     private resultObj;
 
-    private getResultSuccess = false;
-
-
 
     constructor(private searchService: UserSearchService, private router: Router) {}
 
@@ -47,7 +44,6 @@ export class SearchComponent {
     }
 
     ngOnInit() {
-        console.log('resultsObj: ' + this.resultObj);
         this.getResults();
     }
 
@@ -55,12 +51,11 @@ export class SearchComponent {
     onSubmit() {
         this.submitted = true;
         this.searchService.searchUsers(this.model.username);
-        if(this.resultObj === undefined){
-            this.getResultSuccess = false;
-        }
-        else {
-            this.getResultSuccess = true;
-            console.log(this.getResultSuccess);
+    }
+    
+    nextExists(){
+        if(this.searchService.linkObj['next']){
+            return true;
         }
     }
 
@@ -74,10 +69,9 @@ export class SearchComponent {
             if(this.searchService.detailResults$ !== null && this.searchService.detailResults$ !== undefined){
                 this.redirect();
             }
-            else {
-                console.log('No data loaded');
-            }
-        })
+        }, (err) => {
+            console.log('Data not found')
+        });
 
     }
 

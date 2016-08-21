@@ -1,6 +1,14 @@
 .repos{
     height: 100px;
     background-color: #f8f8ff;
+    padding: 5px;
+}
+
+.basic-cont {
+    margin: 0 auto;
+    width: 90%;
+    display: block;
+    max-width: 900px;
 }
 
 .user-avatar{
@@ -12,4 +20,41 @@
     box-shadow: 0 0 4px rgba(0, 0, 0, .8);
 	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .8);
 	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+    display: block;
+    margin: 0 auto;
+}
+
+.results-card{
+    background-color: white;
+    height: 80px;
+    line-height: 65px;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
+    border: 1px #f8f8ff solid;
+}
+
+.repo-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 70%;
+    overflow: hidden;
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+}
+
+.profile-text {
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+    margin-top: 5px;
+    font-size: 30px;
+    text-transform: uppercase;
+
+} 
+
+.stars {
+    float: right;
 }

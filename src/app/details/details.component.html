@@ -2,18 +2,19 @@
 
 <div>
     <div class="container">
-    <img class="user-avatar" src="{{avatarUrl}}">
-    {{login}}
-    {{location}}
-    <div *ngFor="let repo of repos; let i = index">
-        
-            <div class="row repos">
-                <div class="col-md-8">
+    <img class="user-avatar" src="{{avatarUrl}}" align="middle">
+    <p class="profile-text">{{login}} </p>
+    <p class="profile-text">{{location}}</p>
+    
+    <div *ngFor="let repo of repos; let i = index" (click)="goToRepo(repo.html_url)">
+        <div class="results-card basic-cont row repos">
+                <div class="repo-name">
                     {{repo.full_name}}
                 </div>
-                <div class="col-md-4">
+                <div class="stars">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                     {{repo.stargazers_count}}
-                </div>
+                </div>        
             </div>
         </div>
     </div>

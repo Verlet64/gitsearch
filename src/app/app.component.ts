@@ -7,6 +7,8 @@ import { Result } from './shared/interfaces/result.interface';
 
 import { Store } from '@ngrx/store';
 import { AppState } from './shared/interfaces/appstate.interface';
+import { Router } from '@angular/router';
+
 import { UserSearchService } from './shared/services/usersearch.service';
 
 
@@ -20,14 +22,26 @@ import { UserSearchService } from './shared/services/usersearch.service';
 
         .navbar {
             background-color: #625D5D;
+            text-align: center;
         }
 
         .title {
             color: white;
             font-family: 'Poiret One', cursive;
-            text-align: center;
             line-height: 50px;
             font-size: 30px;
+        }
+        
+        a {
+            color: white;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        a:active {
+            color: white;
         }
 
     `],
@@ -38,8 +52,9 @@ export class AppComponent {
     results$: Observable<Array<Result>>;
     selectedResult$: Observable<Result>;
 
-    constructor(private searchService: UserSearchService, private store: Store<AppState>) {
+    constructor(private searchService: UserSearchService, private store: Store<AppState>, private router: Router) {
         this.results$ = searchService.results$;
         searchService.searchUsers(); //on initial component load, we run loadUserResults to propogate the state of the results collection
     }
+
 }

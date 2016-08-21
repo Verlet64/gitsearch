@@ -49,4 +49,8 @@ export class DetailsComponent implements OnInit {
         this.repos = this.resultsObj[1];
     }
 
+    goToRepo(url): void {
+        window.open(url);
+    }
+
 }
