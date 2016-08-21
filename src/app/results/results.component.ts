@@ -10,6 +10,7 @@ import { Component, Input } from '@angular/core';
 
 export class ResultsComponent {
 
+    //Receive result from parent component, search component
     @Input() result: any;
 
 }

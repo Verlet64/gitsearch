@@ -38,6 +38,7 @@ export class SearchComponent {
 
     constructor(private searchService: UserSearchService, private router: Router) {}
 
+    //Get search results by binding to Observable property in UserSearchService
     getResults(): void {
         this.results$ = this.searchService.results$.subscribe(
             s => this.resultObj = s 
@@ -48,18 +49,20 @@ export class SearchComponent {
         this.getResults();
     }
 
-
+    //Function to execute when submit button is pressed
     onSubmit() {
         this.submitted = true;
         this.searchService.searchUsers(this.model.username);
     }
     
+    //Check if the 'next' property exists in the link header and return a boolean true if it does
     nextExists(){
         if(this.searchService.linkObj['next']){
             return true;
         }
     }
 
+    //Handles waiting and event dispatching when function is called
     onClick(resultname) {
 
         this.searchService.searchUserDetails(resultname);
@@ -68,7 +71,8 @@ export class SearchComponent {
 
         p.then(() => {
             if(this.searchService.detailResults$ !== null && this.searchService.detailResults$ !== undefined){
-                this.redirect();
+                //If the user detail + user repo observables are not undefined, redirect to details page
+                this.redirect(); 
             }
         }, (err) => {
             console.log('Data not found')
@@ -76,10 +80,12 @@ export class SearchComponent {
 
     }
 
+    //When the 'next' button is pressed, load next page
     onNext() {
         this.searchService.nextPage();
     }
 
+    //redirect to details page
     redirect(){
         this.router.navigate(['/details']);
     }
