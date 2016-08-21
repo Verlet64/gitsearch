@@ -20,9 +20,10 @@ export const ResultReducer = (state = [], {type, payload}) => {
 
 export const SelectedUserReducer = (state: any = null, {type, payload}) => {
     switch (type) {
-        case 'SELECT_RESULT': {
+        case 'ADD_USER': 
             return payload;
-        }
+        case 'ADD_REPOS':
+            return [state, payload];
         default: 
             return state;
     }

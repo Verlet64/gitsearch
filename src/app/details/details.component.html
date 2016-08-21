@@ -1,0 +1,17 @@
+<div>
+    <img class="user-avatar" src="{{avatarUrl}}">
+    {{login}}
+    {{location}}
+    <div *ngFor="let repo of repos; let i = index">
+        <div class="container">
+            <div class="row repos">
+                <div class="col-md-8">
+                    {{repo.full_name}}
+                </div>
+                <div class="col-md-4">
+                    {{repo.stargazers_count}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

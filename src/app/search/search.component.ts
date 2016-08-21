@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { SearchQuery } from './searchquery.model';
 
@@ -10,10 +10,16 @@ import { Result } from '../shared/interfaces/result.interface';
 import { Store } from '@ngrx/store';
 import { AppState } from '../shared/interfaces/appstate.interface';
 
+import { ResultsComponent } from '../results/results.component';
+
+
+
+
 
 @Component ({
     selector: 'search-form',
-    templateUrl: 'src/app/search/search.component.html'
+    templateUrl: 'src/app/search/search.component.html',
+    directives: [ResultsComponent]
 })
 
 export class SearchComponent {
@@ -22,24 +28,35 @@ export class SearchComponent {
 
     public model = new SearchQuery();
 
-    results$;
+    private results$;
 
-    resultObj;
+    private resultObj;
 
 
 
-    constructor(private searchService: UserSearchService) { 
-        this.results$ = searchService.results$.subscribe(
-            s => this.resultObj = s.map( x => {return x.avatar_url})
+    constructor(private searchService: UserSearchService) {}
+
+    getResults(): void {
+        this.results$ = this.searchService.results$.subscribe(
+            s => this.resultObj = s 
         )
+    }
+
+    ngOnInit() {
+        this.getResults();
     }
 
 
     onSubmit() {
         this.submitted = true;
-        this.searchService.loadUserResults(this.model.username);
-        console.log(this.resultObj);
+        this.searchService.searchUsers(this.model.username);
+        console.log([...this.resultObj]);
+        console.log(this.searchService.linkObj);
     }
+
+    onClick(resultname) {
+        this.searchService.searchUserDetails(resultname);
+    }   
 
     
 }

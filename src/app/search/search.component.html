@@ -1,15 +1,16 @@
+<link rel="stylesheet" href="./style.css">
+
 <div class="container-fluid">
-    <div>
-        <form (ngSubmit)="onSubmit()"> 
+    <div class="form-container basic-cont">
+        <form class="search-form" (ngSubmit)="onSubmit()"> 
             <div>
                 <label for="username"> Username: </label>
                 <input type="text" [(ngModel)]="model.username" name="username">
-                {{model.username}}
             </div>
-            <button type="submit">Submit</button>
+            <button class="search-button" type="submit">SEARCH</button>
         </form>
     </div>
-    <div>
-        <search-results></search-results>
+    <div *ngFor="let result of resultObj; let i=index" (click)="onClick(result.login)">
+        <search-results [result]="result"></search-results>
     </div>
 </div>

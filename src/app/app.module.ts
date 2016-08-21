@@ -13,11 +13,14 @@ import { FormsModule }   from '@angular/forms';
 
 /*
 ========================
-COMPONENTS
+DECLARATIONS
 ========================
 */
 import { AppComponent }  from './app.component';
 import { SearchComponent }  from './search/search.component';
+import { ResultsComponent } from './results/results.component';
+import { DetailsComponent } from './details/details.component';
+import * as _ from 'underscore';
 
 /*
 ========================
@@ -31,6 +34,7 @@ import { UserSearchService } from './shared/services/usersearch.service';
 import { appRoutingProviders } from './app.routes';
 import {storeLogger} from "ngrx-store-logger";
 import {compose} from "@ngrx/core/compose";
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 /*
 ========================
@@ -49,11 +53,13 @@ DIRECTIVES
   providers: [
     appRoutingProviders, //router dependencies specification
     UserSearchService, //consumes the store
-    provideStore(compose(storeLogger(), combineReducers)({results: ResultReducer, SelectedUserReducer})), //defines app state
+    [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+    provideStore(compose(storeLogger(), combineReducers)({results: ResultReducer, selectedusers: SelectedUserReducer})), //defines app state
     ],
   declarations: [ 
       AppComponent,
-      SearchComponent
+      SearchComponent,
+      ResultsComponent
    ],
   bootstrap: [ AppComponent ]
 })

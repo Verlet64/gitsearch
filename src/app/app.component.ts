@@ -25,6 +25,6 @@ export class AppComponent {
 
     constructor(private searchService: UserSearchService, private store: Store<AppState>) {
         this.results$ = searchService.results$;
-        searchService.loadUserResults(); //on initial component load, we run loadUserResults to propogate the state of the results collection
+        searchService.searchUsers(); //on initial component load, we run loadUserResults to propogate the state of the results collection
     }
 }

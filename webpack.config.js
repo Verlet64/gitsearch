@@ -23,5 +23,6 @@ module.exports = {
         new htmlInject({
             template: './src/index.html'
         })
-    ]
+    ],
+    styles: [require('./src/app/details/details.style.css')]
 }

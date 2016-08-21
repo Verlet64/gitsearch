@@ -1,0 +1,17 @@
+.basic-cont {
+    margin: 0 auto;
+    width: 90%;
+    display: block;
+}
+
+.results-card{
+    background-color: #f8f8ff;
+    height: 80px;
+    line-height: 80px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.form-container {
+    text-align: center;
+}

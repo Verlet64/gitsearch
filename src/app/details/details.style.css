@@ -1,0 +1,14 @@
+.repos {
+    height: 100px;
+    background-color: #f8f8ff;
+}
+
+.user-avatar{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+    border-size: 5px;
+    border-color: #dedee5;
+}
