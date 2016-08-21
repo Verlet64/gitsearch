@@ -1,16 +1,19 @@
 <link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
 <div class="container-fluid">
     <div class="form-container basic-cont">
         <form class="search-form" (ngSubmit)="onSubmit()"> 
             <div>
-                <label for="username"> Username: </label>
-                <input type="text" [(ngModel)]="model.username" name="username">
+                <input type="text" [(ngModel)]="model.username" name="username" class="form-control text-input" placeholder="SEARCH">
             </div>
-            <button class="search-button" type="submit">SEARCH</button>
+            <button class="search-button btn" type="submit">SEARCH</button>
         </form>
     </div>
     <div *ngFor="let result of resultObj; let i=index" (click)="onClick(result.login)">
         <search-results [result]="result"></search-results>
     </div>
+    <button class="next-button btn" (click)="onNext()" *ngIf="getResultSuccess === true">
+        NEXT
+    </button>
 </div>

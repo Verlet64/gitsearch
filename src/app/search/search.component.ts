@@ -12,6 +12,8 @@ import { AppState } from '../shared/interfaces/appstate.interface';
 
 import { ResultsComponent } from '../results/results.component';
 
+import { Router } from '@angular/router';
+
 
 
 
@@ -32,9 +34,11 @@ export class SearchComponent {
 
     private resultObj;
 
+    private getResultSuccess = false;
 
 
-    constructor(private searchService: UserSearchService) {}
+
+    constructor(private searchService: UserSearchService, private router: Router) {}
 
     getResults(): void {
         this.results$ = this.searchService.results$.subscribe(
@@ -43,6 +47,7 @@ export class SearchComponent {
     }
 
     ngOnInit() {
+        console.log('resultsObj: ' + this.resultObj);
         this.getResults();
     }
 
@@ -50,13 +55,39 @@ export class SearchComponent {
     onSubmit() {
         this.submitted = true;
         this.searchService.searchUsers(this.model.username);
-        console.log([...this.resultObj]);
-        console.log(this.searchService.linkObj);
+        if(this.resultObj === undefined){
+            this.getResultSuccess = false;
+        }
+        else {
+            this.getResultSuccess = true;
+            console.log(this.getResultSuccess);
+        }
     }
 
     onClick(resultname) {
+
         this.searchService.searchUserDetails(resultname);
-    }   
+        
+        let p =this.searchService.p();
+
+        p.then(() => {
+            if(this.searchService.detailResults$ !== null && this.searchService.detailResults$ !== undefined){
+                this.redirect();
+            }
+            else {
+                console.log('No data loaded');
+            }
+        })
+
+    }
+
+    onNext() {
+        this.searchService.nextPage();
+    }
+
+    redirect(){
+        this.router.navigate(['/details']);
+    }
 
     
 }

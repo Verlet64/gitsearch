@@ -12,10 +12,25 @@ import { UserSearchService } from './shared/services/usersearch.service';
 
 @Component({
     selector: 'my-app',
-    template: `
-        <h1> {{title}} </h1>
-        <router-outlet></router-outlet>
-    `,
+    templateUrl: 'src/app/app.component.html',
+    styles: [`
+        body {
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #625D5D;
+        }
+
+        .title {
+            color: white;
+            font-family: 'Poiret One', cursive;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+        }
+
+    `],
     directives: [ROUTER_DIRECTIVES]
 })
 

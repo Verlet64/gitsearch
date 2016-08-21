@@ -11,18 +11,17 @@ module.exports = {
         filename: '[name].bundle.js',
         sourceMapFilename: '[name].map'
     },
+    resolve: {
+        extensions: ['', '.js', '.ts']
+    },
     module: {
         loaders: [
             {test: /\.ts$/, loader: 'ts'}
         ]
     },
-    resolve: {
-        extensions: ['', '.js', '.ts']
-    },
     plugins: [
         new htmlInject({
             template: './src/index.html'
         })
-    ],
-    styles: [require('./src/app/details/details.style.css')]
+    ]
 }

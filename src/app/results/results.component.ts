@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 
+
 @Component ({
     selector: 'search-results',
     templateUrl: 'src/app/results/results.component.html'

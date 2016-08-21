@@ -2,6 +2,7 @@
     margin: 0 auto;
     width: 90%;
     display: block;
+    max-width: 900px;
 }
 
 .results-card{
@@ -10,8 +11,23 @@
     line-height: 80px;
     margin-top: 10px;
     padding: 5px;
+    border-radius: 3px;
+    border-size: 1px;
 }
 
 .form-container {
     text-align: center;
+}
+
+.git-name-subcard{
+    background-color: white;
+    border-radius: 3px;
+    height: 100%;
+    line-height: 70px;
+}
+
+.ava {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
 }

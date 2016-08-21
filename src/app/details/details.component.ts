@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 
 @Component ({
     selector: 'details-component',
-    templateUrl: 'src/app/details/details.component.html',
-    styleUrls: ['src/app/details/details.style.css']
+    templateUrl: 'src/app/details/details.component.html'
 })
 
 export class DetailsComponent implements OnInit {
@@ -35,6 +34,7 @@ export class DetailsComponent implements OnInit {
 
     assertDataExists(): void{
         if(this.resultsObj === null){
+            this.searchService.resetUserStore();
             this.router.navigate(['/search']);
         }
         else {

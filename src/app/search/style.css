@@ -2,6 +2,7 @@
     margin: 0 auto;
     width: 90%;
     display: block;
+    max-width: 900px;
 }
 
 .results-card{
@@ -14,4 +15,31 @@
 
 .form-container {
     text-align: center;
+}
+
+.text-input {
+    margin-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+}
+
+.search-button {
+    color: white;
+    background-color: #779ecb;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 2px;
+}
+
+.next-button {
+    color: white;
+    background-color: #779ecb;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    float: right;
+    margin-right: 10px;
+}
+
+.hidden {
+    display: none;
 }

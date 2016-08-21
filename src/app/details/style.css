@@ -1,4 +1,4 @@
-.repos {
+.repos{
     height: 100px;
     background-color: #f8f8ff;
 }
@@ -9,6 +9,7 @@
     border-radius: 50%;
     -webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
-    border-size: 5px;
-    border-color: #dedee5;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, .8);
 }
