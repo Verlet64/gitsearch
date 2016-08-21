@@ -45,25 +45,25 @@ export class SearchComponent {
         )
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.getResults();
     }
 
     //Function to execute when submit button is pressed
-    onSubmit() {
+    onSubmit(): void {
         this.submitted = true;
         this.searchService.searchUsers(this.model.username);
     }
     
     //Check if the 'next' property exists in the link header and return a boolean true if it does
-    nextExists(){
+    nextExists(): boolean {
         if(this.searchService.linkObj['next']){
             return true;
         }
     }
 
     //Handles waiting and event dispatching when function is called
-    onClick(resultname) {
+    onClick(resultname): void {
 
         this.searchService.searchUserDetails(resultname);
         
@@ -81,12 +81,12 @@ export class SearchComponent {
     }
 
     //When the 'next' button is pressed, load next page
-    onNext() {
+    onNext(): void {
         this.searchService.nextPage();
     }
 
     //redirect to details page
-    redirect(){
+    redirect(): void{
         this.router.navigate(['/details']);
     }
 

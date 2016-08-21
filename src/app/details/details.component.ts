@@ -29,7 +29,7 @@ export class DetailsComponent implements OnInit {
         )
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.getDetails();
         this.assertDataExists();
     }

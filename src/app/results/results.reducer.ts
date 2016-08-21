@@ -9,6 +9,7 @@ import '@ngrx/core/add/operator/select';
     payload: any
 */
 
+//Contains the user search results
 export const ResultReducer = (state = [], {type, payload}) => {
     switch (type) {
         case 'ADD_RESULTS':
@@ -18,6 +19,7 @@ export const ResultReducer = (state = [], {type, payload}) => {
     };
 }
 
+//Contains the selected user details
 export const SelectedUserReducer = (state: any = null, {type, payload}) => {
     switch (type) {
         case 'ADD_USER': 
@@ -27,11 +29,4 @@ export const SelectedUserReducer = (state: any = null, {type, payload}) => {
         default: 
             return state;
     }
-}
-
-//TODO: Refactor so this is more composable i.e getResult()
-
-export function getResults(){
-    return (state$: Observable<AppState>) => state$
-        .select(state => state);
 }
