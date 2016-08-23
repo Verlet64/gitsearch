@@ -49994,7 +49994,6 @@
 	var app_routes_2 = __webpack_require__(338);
 	var ngrx_store_logger_1 = __webpack_require__(492);
 	var compose_1 = __webpack_require__(493);
-	var common_1 = __webpack_require__(205);
 	/*
 	========================
 	DIRECTIVES
@@ -50015,7 +50014,6 @@
 	            providers: [
 	                app_routes_2.appRoutingProviders,
 	                usersearch_service_1.UserSearchService,
-	                [{ provide: common_1.LocationStrategy }],
 	                store_1.provideStore(compose_1.compose(ngrx_store_logger_1.storeLogger(), store_1.combineReducers)({ results: results_reducer_1.ResultReducer, selectedusers: results_reducer_1.SelectedUserReducer })),
 	            ],
 	            declarations: [
@@ -50044,7 +50042,7 @@
 	var routes = [
 	    {
 	        path: '',
-	        redirectTo: '/search',
+	        redirectTo: 'search',
 	        pathMatch: 'full'
 	    },
 	    {
@@ -66820,7 +66818,7 @@
 /* 489 */
 /***/ function(module, exports) {
 
-	module.exports = "<link href=\"https://fonts.googleapis.com/css?family=Lato|Poiret+One\" rel=\"stylesheet\">\r\n\r\n<div class=\"navbar\">\r\n    <div class=\"title\">\r\n        <a href=\"/#/search\">\r\n            GITSEARCH\r\n        </a> \r\n    </div>\r\n</div>\r\n<router-outlet></router-outlet>"
+	module.exports = "<link href=\"https://fonts.googleapis.com/css?family=Lato|Poiret+One\" rel=\"stylesheet\">\r\n\r\n<div class=\"navbar\">\r\n    <div class=\"title\">\r\n        <a href=\"/search\">\r\n            GITSEARCH\r\n        </a> \r\n    </div>\r\n</div>\r\n<router-outlet></router-outlet>"
 
 /***/ },
 /* 490 */
