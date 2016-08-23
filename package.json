@@ -44,6 +44,7 @@
   "license": "ISC",
   "devDependencies": {
     "@angular/testing": "0.0.0-0",
+    "angular-cli-github-pages": "^0.2.0",
     "angular2-template-loader": "^0.4.0",
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.22.0",
