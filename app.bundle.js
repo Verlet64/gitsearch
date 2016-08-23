@@ -50015,7 +50015,7 @@
 	            providers: [
 	                app_routes_2.appRoutingProviders,
 	                usersearch_service_1.UserSearchService,
-	                [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
+	                [{ provide: common_1.LocationStrategy }],
 	                store_1.provideStore(compose_1.compose(ngrx_store_logger_1.storeLogger(), store_1.combineReducers)({ results: results_reducer_1.ResultReducer, selectedusers: results_reducer_1.SelectedUserReducer })),
 	            ],
 	            declarations: [
