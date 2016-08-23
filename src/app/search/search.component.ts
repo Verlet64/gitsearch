@@ -20,9 +20,9 @@ import { Router } from '@angular/router';
 
 @Component ({
     selector: 'search-form',
-    templateUrl: 'src/app/search/search.component.html',
+    templateUrl: './search.component.html',
     directives: [ResultsComponent],
-    styleUrls: ['src/app/search/search.component.css']
+    styleUrls: ['./search.component.css']
 })
 
 export class SearchComponent {

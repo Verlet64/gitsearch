@@ -14,7 +14,7 @@ import { UserSearchService } from './shared/services/usersearch.service';
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'src/app/app.component.html',
+    templateUrl: './app.component.html',
     styles: [`
         body {
             padding: 0;

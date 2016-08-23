@@ -16,10 +16,10 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.ts$/, loader: 'ts'},
-            {
-                test: /\.css$/,
-                loaders: ['to-string-loader', 'css-loader']
+            {test: /\.ts$/, loaders: ['ts', 'angular2-template-loader']},
+            { 
+                test: /\.(html|css)$/, 
+                loader: 'raw-loader'
             }
         ]
     },

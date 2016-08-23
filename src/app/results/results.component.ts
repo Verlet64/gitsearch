@@ -4,8 +4,8 @@ import { Component, Input } from '@angular/core';
 
 @Component ({
     selector: 'search-results',
-    templateUrl: 'src/app/results/results.component.html',
-    styleUrls: ['src/app/results/results.component.css']
+    templateUrl: './results.component.html',
+    styleUrls: ['./results.component.css']
 })
 
 export class ResultsComponent {
